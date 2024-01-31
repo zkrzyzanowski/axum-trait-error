@@ -14,16 +14,7 @@ use error::error::CustomError;
 async fn main() {
     let app = Router::new()
         .layer(CatchPanicLayer::new())
-        .route("/test", post(run))
-        .layer(
-            ServiceBuilder::new()
-                // this middleware goes above `TimeoutLayer` because it will receive
-                // errors returned by `TimeoutLayer`
-                .layer(HandleErrorLayer::new(|_: BoxError| async {
-                    StatusCode::REQUEST_TIMEOUT
-                }))
-                .layer(TimeoutLayer::new(Duration::from_secs(20))),
-        );
+        .route("/test", post(run));
 
     let addr = format!("0.0.0.0:8080",);
     let listener = tokio::net::TcpListener::bind(&addr).await.unwrap();
