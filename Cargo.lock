@@ -146,18 +146,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "axum-into-response"
-version = "0.1.0"
-dependencies = [
- "anyhow",
- "axum 0.7.4",
- "error",
- "tokio",
- "tower",
- "tower-http",
-]
-
-[[package]]
 name = "axum-macros"
 version = "0.4.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1063,6 +1051,18 @@ dependencies = [
  "itoa",
  "ryu",
  "serde",
+]
+
+[[package]]
+name = "serve"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "axum 0.7.4",
+ "error",
+ "tokio",
+ "tower",
+ "tower-http",
 ]
 
 [[package]]
